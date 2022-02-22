@@ -1,0 +1,7 @@
+{
+  "name": "grain-restaurants",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

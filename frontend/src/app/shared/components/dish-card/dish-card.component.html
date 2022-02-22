@@ -1,0 +1,20 @@
+<ion-card >
+  <mat-expansion-panel>
+
+    <mat-expansion-panel-header>
+
+      <div class="image-wrapper">
+        <img [src]="dish.imageUrl">
+      </div>
+      
+      <ion-label>
+        <h1>{{dish.name}}</h1>
+        <h2>R$ {{dish.price}}</h2>
+      </ion-label>
+    
+    </mat-expansion-panel-header>
+
+    <p>{{ dish.description }}</p>
+
+  </mat-expansion-panel>
+</ion-card>

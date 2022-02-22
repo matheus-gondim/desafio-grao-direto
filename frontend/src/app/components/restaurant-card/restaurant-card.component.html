@@ -1,0 +1,14 @@
+<ion-card (click)="toDishPage()">
+  <ion-card-content style="padding: 0;">
+    <ion-item lines="none">
+      <ion-thumbnail slot="start">
+        <img [src]="restaurant.imageUrl">
+      </ion-thumbnail>
+      <ion-label>
+        <ion-card-title>{{restaurant.name}}</ion-card-title>
+        <p>{{restaurant.type.name}}</p>
+        <p>{{restaurant.score}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,33 @@
+<ion-content>
+  <div class="logo-wrapper">
+    <img src="../../../assets/Group_90.svg">
+  </div>
+
+  <div class="flex-center"> 
+    <ion-card style="width: 90%; margin: 0; padding: 0;">
+    
+      <ion-card-header style="text-align: center; padding-bottom: 0;">
+        <ion-card-title>Login</ion-card-title>
+      </ion-card-header>
+    
+      <form [formGroup]="form">
+        <ion-card-content>
+          
+          <ion-item class="ion-margin-top">
+            <ion-input type="email" placeholder="E-mail" formControlName="email"></ion-input>
+          </ion-item>
+          <app-error-message message="E-mail inválido" [field]="form.get('email')"></app-error-message>
+          
+          <ion-item class="ion-margin-top">
+            <ion-input [type]="getType()" placeholder="Senha" formControlName="password"></ion-input>
+            <ion-icon *ngIf="isActiveToggleTextPassword" name="eye" item-right (click)="showPassword()"></ion-icon>
+            <ion-icon *ngIf="!isActiveToggleTextPassword" name="eye-off" item-right (click)="showPassword()"></ion-icon>
+          </ion-item>
+          <app-error-message message="Senha inválida" [field]="form.get('password')"></app-error-message>
+          
+          <ion-button class="ion-margin-top" size="full" [disabled]="!form.valid" (click)="login()">Entrar</ion-button>
+        </ion-card-content>
+      </form>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">  
+  <ion-toolbar>  
+    <ion-buttons slot="secondary">
+ 
+      <ion-button *ngIf="!searchbar" (click)="showSearchbar()">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+      
+      <ion-button class="close-button" *ngIf="searchbar" (click)="showSearchbar()">
+        <ion-icon slot="icon-only" name="close" color="danger"></ion-icon>
+      </ion-button>
+      
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+      
+    </ion-buttons>
+
+    <ion-title>{{ toolBarTitle }}</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar *ngIf="searchbar">
+    <ion-item class="box" lines="none">
+      <ion-input placeholder="Pesquisa" lines="none" [(ngModel)]="searchInput"></ion-input>
+      <ion-button (click)='findRestaurants()' fill="clear">
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-item  *ngIf="restaurants.length == 0" lines="none" >
+    Nenhum Restaurante Encontrado
+  </ion-item>
+  
+  <ion-list *ngIf="restaurants.length > 0">
+    
+    <app-restaurant-card  
+    *ngFor="let restaurant of restaurants"  
+    [id] = "restaurant.id"
+    [restaurant] = "restaurant"
+    ></app-restaurant-card>
+
+  </ion-list>
+</ion-content>

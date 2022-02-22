@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      
+      <ion-button (click)="toBackPage()">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+      
+    </ion-buttons>
+
+    <ion-title>{{user?.name??""}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-card>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label>
+          <ion-card-title>{{restaurant?.name}}</ion-card-title>
+          <p>{{restaurant?.address?.location}}, {{restaurant?.address?.number}}, {{restaurant?.address?.district}}</p>
+          <p>{{restaurant?.phone}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-list *ngIf="dishes.length > 0">
+    <app-dish-card
+    *ngFor="let dish of dishes"
+    id="dish.id"
+    [dish]="dish"
+    ></app-dish-card>
+  </ion-list>
+</ion-content>
